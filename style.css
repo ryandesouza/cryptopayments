@@ -1,0 +1,310 @@
+:root {
+  --primary: #1a237e;
+  --primary-light: #534bae;
+  --primary-dark: #000051;
+  --secondary: #0d47a1;
+  --accent: #2962ff;
+  --background: #ffffff;
+  --card-bg: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  max-height: 80vh;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.tweets-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  max-height: 80vh;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.market-map {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tile {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(41, 98, 255, 0.1);
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(41, 98, 255, 0.15);
+}
+
+.tile h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.tile p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.logo-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo-item {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+  padding: 0.5rem;
+}
+
+.logo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.spacer {
+    height: 2rem; /* or whatever gap size you prefer */
+  }
+  
+.attribution {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .attribution a {
+    color: #007AFF;
+    text-decoration: none;
+  }
+  
+  .attribution a:hover {
+    text-decoration: underline;
+  }
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  
+  .tweets-section {
+    width: 100%;
+  }
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: var(--background);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 1200px;
+  border-radius: 16px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--primary);
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: var(--primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(41, 98, 255, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(41, 98, 255, 0.15);
+}
+
+.project-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  background: var(--card-bg);
+  padding: 0.5rem;
+}
+
+.project-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.twitter-tweet {
+  flex: 1;
+  min-height: 0;
+  height: calc((100% - 2rem) / 3);
+}
+
+.section-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  color: #333;
+  text-align: center;
+} 

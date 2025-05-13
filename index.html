@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Payments Landscape by @ryandesouza </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Crypto Payments Market Map</h1>
+  <!-- <h2 class="subtitle">Navigate Crypto Payments with Ease: Your Map to the Future of Digital Finance</h2> -->
+  
+  
+
+  <div class="market-map">
+    <div class="grid">
+      <a class="tile" href="https://yourlink.com/wallets" target="_blank">
+        <h3> 💳 Crypto Cards</h3>
+        <p>Issue a virtual/physical card to users, enabling them to pay directly with their crypto balance.</p>
+        <!-- <div class="logo-container">
+          <div class="logo-item">
+            <img src="images/teams/coinbase.png" alt="Coinbase">
+          </div>
+          <div class="logo-item">
+            <img src="images/teams/binance.png" alt="Binance">
+          </div>
+          <div class="logo-item">
+            <img src="images/teams/crypto-com.png" alt="Crypto.com">
+          </div>
+        </div> -->
+      </a>
+      <a class="tile" href="https://www.notion.so/Wallets-1f185e2b433c803d920df6c2e2ca3ae8?pvs=4" target="_blank">
+        <h3> 🧳 Stablecoin Wallet</h3>
+        <p>A Web3 wallet with a fintech-like experience. These may issue crypto cards and often include a savings/investment product to complement the cards.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/pos" target="_blank">
+        <h3> 🌐 Cross-Border Payments</h3>
+        <p>Enable retail users and businesses to send funds globally using blockchain rails, with a focus on FX.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/remittance" target="_blank">
+        <h3> 🏦 Neobank</h3>
+        <p> Business banking using blockchain rails, potentially including both domestic and cross-border payments. Provides an interface for accounts payable/receivable, remote payroll, and treasury management.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/infrastructure" target="_blank">
+        <h3> 🌉 On/Off Ramps</h3>
+        <p>Convert fiat to crypto through local payment rails with low interchange and FX fees.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/infrastructure" target="_blank">
+        <h3> 📮 Merchant Acceptance</h3>
+        <p>Enable businesses (both online and offline) to receive crypto as payment from customers. Solutions may include an SDK for online storefronts or a QR code for physical stores.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/infrastructure" target="_blank">
+        <h3>⛓️ Stablecoin Chain</h3>
+        <p>Infrastructure optimized for stablecoin payments, with features like transaction-level privacy, payee tokenization, and escrow.</p>
+      </a>
+      <a class="tile" href="https://yourlink.com/infrastructure" target="_blank">
+        <h3> 🛠 Stablecoin API</h3>
+        <p>APIs directly connected to stablecoin issuers, enabling fintechs and non-bank financial institutions to send, receive, and manage stablecoin programmatically.</p>
+      </a>
+    </div>
+   
+</div>
+
+<div class="spacer"></div>
+
+<div class="hero-container">
+  <div class="content-wrapper">
+    <div class="image-section">
+      <div class="image-content">
+        <!-- <h2 class="section-header">Stablecoin and payments are two sides of the same coin — neither can scale without the other</h2> -->
+        <a href="https://fintechpulse.substack.com/p/stablecoin-and-payments-are-two-sides" target="_blank">
+          <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4c02006-def0-499d-90a7-8ddd15bb709a_1132x1344.png" alt="Crypto Payments Overview" class="hero-image">
+        </a>
+      </div>
+    </div>
+    <div class="tweets-section">
+      <!-- <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-height="200">
+        <a href="https://twitter.com/_ryandesouza/status/1917878634918060065"></a>
+      </blockquote> -->
+      <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-height="200">
+        <a href="https://twitter.com/_ryandesouza/status/1823725032067289150"></a>
+      </blockquote>
+      <!-- <blockquote class="twitter-tweet" data-theme="light" data-cards="hidden" data-height="200">
+        <a href="https://twitter.com/_ryandesouza/status/1867399035063349311"></a>
+      </blockquote> -->
+    </div>
+  </div>
+</div>
+<div class="spacer"></div>
+<!-- Add this modal overlay before closing body tag -->
+<div id="categoryModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle"></h2>
+      <button class="close-button">&times;</button>
+    </div>
+    <div id="projectsGrid" class="projects-grid">
+      <!-- Projects will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import projectsData from './projects-data.js';
+
+  // Get modal elements
+  const modal = document.getElementById('categoryModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const projectsGrid = document.getElementById('projectsGrid');
+  const closeButton = document.querySelector('.close-button');
+
+  // Update all tile links to open modal instead
+  document.querySelectorAll('.tile').forEach(tile => {
+    tile.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Extract category from the h3 text and map it to the correct key
+      const h3Text = tile.querySelector('h3').textContent.trim();
+      let category;
+      
+      // Map the emoji-prefixed titles to the correct category keys
+      switch(h3Text) {
+        case '💳 Crypto Cards':
+          category = 'crypto-cards';
+          break;
+        case '🧳 Stablecoin Wallet':
+          category = 'stablecoin-wallet';
+          break;
+        case '🌐 Cross-Border Payments':
+          category = 'cross-border';
+          break;
+        case '🏦 Neobank':
+          category = 'neobank';
+          break;
+        case '🌉 On/Off Ramps':
+          category = 'on-off-ramps';
+          break;
+        case '📮 Merchant Acceptance':
+          category = 'merchant-acceptance';
+          break;
+        case '⛓️ Stablecoin Chain':
+          category = 'stablecoin-chain';
+          break;
+        case '🛠 Stablecoin API':
+          category = 'stablecoin-api';
+          break;
+        default:
+          category = h3Text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      }
+      
+      openModal(category);
+    });
+  });
+
+  // Close modal when clicking close button
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  function openModal(category) {
+    console.log('Opening modal for category:', category);
+    console.log('Available data:', projectsData[category]);
+    
+    modalTitle.textContent = category.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    
+    projectsGrid.innerHTML = '';
+    
+    if (projectsData[category]) {
+      projectsData[category].forEach(project => {
+        const projectCard = `
+          <div class="project-card">
+            
+            <h3 class="project-name">${project.name}</h3>
+            <p class="project-description">${project.description}</p>
+            <div class="project-links">
+              <a href="${project.website}" target="_blank" class="project-link">Website</a>
+              <a href="${project.twitter}" target="_blank" class="project-link">Twitter</a>
+            </div>
+          </div>
+        `;
+        // <img src="${project.logo}" alt="${project.name}" class="project-logo"> (To include below project-card class)
+        projectsGrid.innerHTML += projectCard;
+      });
+    } else {
+      console.log('No data found for category:', category);
+      projectsGrid.innerHTML = '<p>No projects available for this category yet.</p>';
+    }
+    
+    modal.style.display = 'block';
+  }
+</script>
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      var script = document.createElement('script');
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }, 1000);
+  }
+</script>
+  <div class="attribution">
+    Made by <a href="https://twitter.com/ryandesouza" target="_blank">@ryandesouza 💙 </a>
+  </div>
+</body>
+</html>

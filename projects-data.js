@@ -131,6 +131,13 @@ const projectsData = {
       "twitter": null
     },
     {
+      "name": "Conduit",
+      "description": "Conduit provides a global payments platform for businesses, enabling near-instant transfers in stablecoins or local currencies, with features like accounts payable, remote payroll, and treasury management.",
+      "logo": "https://conduitpay.com/logo.png",
+      "website": "https://conduitpay.com",
+      "twitter": null
+    },
+    {
       "name": "SpherePay",
       "description": "SpherePay provides global payment solutions, allowing businesses to send and receive money in multiple currencies with ease.",
       "logo": "https://spherepay.co/logo.png",
@@ -207,13 +214,6 @@ const projectsData = {
       "description": "Dakota is a modern banking platform powered by stablecoins and backed by U.S. Treasuries, offering global access to USD, stablecoin transfers, corporate cards, and yield-earning accounts.",
       "logo": "https://dakota.xyz/logo.png",
       "website": "https://dakota.xyz",
-      "twitter": null
-    },
-    {
-      "name": "Conduit",
-      "description": "Conduit provides a global payments platform for businesses, enabling near-instant transfers in stablecoins or local currencies, with features like accounts payable, remote payroll, and treasury management.",
-      "logo": "https://conduitpay.com/logo.png",
-      "website": "https://conduitpay.com",
       "twitter": null
     },
     {

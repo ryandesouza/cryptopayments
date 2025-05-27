@@ -23,7 +23,27 @@
   <h1>Crypto Payments Market Map</h1>
   <!-- <h2 class="subtitle">Navigate Crypto Payments with Ease: Your Map to the Future of Digital Finance</h2> -->
   
-  
+  <div class="analytics-container">
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <h3>Total Projects</h3>
+        <p id="totalProjects">Loading...</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Categories</h3>
+        <p id="totalCategories">Loading...</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Acquisitions</h3>
+        <p id="totalAcquisitions">Loading...</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Total Fundraise</h3>
+        <p id="totalFundraise">Coming Soon</p>
+        <small class="placeholder-note"></small>
+      </div>
+    </div>
+  </div>
 
   <div class="market-map">
     <div class="grid">
@@ -116,6 +136,29 @@
 <script type="module">
   import projectsData from './projects-data.js';
 
+  // Calculate analytics
+  function calculateAnalytics() {
+    // Calculate total projects
+    const totalProjects = Object.values(projectsData).reduce((acc, category) => acc + category.length, 0);
+    document.getElementById('totalProjects').textContent = totalProjects;
+
+    // Calculate total categories
+    const totalCategories = Object.keys(projectsData).length;
+    document.getElementById('totalCategories').textContent = totalCategories;
+
+    // Calculate total acquisitions
+    const totalAcquisitions = Object.values(projectsData).reduce((acc, category) => {
+      return acc + category.filter(project => project.acquired).length;
+    }, 0);
+    document.getElementById('totalAcquisitions').textContent = totalAcquisitions;
+
+    // Placeholder for fundraising
+    document.getElementById('totalFundraise').textContent = 'Coming Soon';
+  }
+
+  // Call calculateAnalytics when the page loads
+  calculateAnalytics();
+
   // Get modal elements
   const modal = document.getElementById('categoryModal');
   const modalTitle = document.getElementById('modalTitle');
@@ -190,16 +233,15 @@
       projectsData[category].forEach(project => {
         const projectCard = `
           <div class="project-card">
-            
+            ${project.acquired ? '<div class="acquired-banner">Acquired</div>' : ''}
             <h3 class="project-name">${project.name}</h3>
             <p class="project-description">${project.description}</p>
             <div class="project-links">
               <a href="${project.website}" target="_blank" class="project-link">Website</a>
-              <a href="${project.twitter}" target="_blank" class="project-link">Twitter</a>
+              ${project.twitter ? `<a href="${project.twitter}" target="_blank" class="project-link">Twitter</a>` : ''}
             </div>
           </div>
         `;
-        // <img src="${project.logo}" alt="${project.name}" class="project-logo"> (To include below project-card class)
         projectsGrid.innerHTML += projectCard;
       });
     } else {

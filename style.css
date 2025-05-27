@@ -170,6 +170,26 @@ h1 {
   }
 }
 
+.submit-project {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .submit-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
 /* Modal styles */
 .modal {
   display: none;
